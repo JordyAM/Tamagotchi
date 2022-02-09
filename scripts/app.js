@@ -60,3 +60,18 @@ $("#check").on('click', () => {
     console.log(tamagotchi.increasePlayLvl());
     console.log(tamagotchi.increaseAge());
 })
+
+
+/* button works fine, now i need to make the increase functions to iterate without any clicks. then we make more buttons to assign to other meters, and make them be able to decrease the meters. */
+
+$("#decFood").on('click', () => {
+    console.log(tamagotchi.decreaseFoodLvl());
+})
+
+$("#decTire").on('click', () => {
+    console.log(tamagotchi.decreasePlayLvl());
+})
+
+$("#decPlay").on('click', () => {
+    console.log(tamagotchi.decreaseTiredLvl());
+})
