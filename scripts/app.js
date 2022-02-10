@@ -37,12 +37,21 @@ const tamagotchi = {
         return this.age+=1;
     },
     decreaseFoodLvl(){
+        if(this.foodLvl === 0 || this.foodLvl === 1){
+            return this.foodLvl = 0;
+        }
         return this.foodLvl -= 2;
     },
     decreaseTiredLvl(){
+        if(this.tiredLvl === 0 || this.tiredLvl === 1){
+            return this.foodLvl = 0;
+        }
         return this.tiredLvl -= 2;
     },
     decreasePlayLvl(){
+        if(this.playLvl === 0 || this.playLvl ===1){
+            return this.foodLvl = 0;
+        }
         return this.playLvl -= 2;
     },
 
@@ -74,4 +83,12 @@ $("#decTire").on('click', () => {
 
 $("#decPlay").on('click', () => {
     console.log(tamagotchi.decreaseTiredLvl());
+})
+
+
+$("#Begin").on('click', () => {
+    setInterval(increaseFoodLvl, 3000);
+    setInterval(increasePlayLvl, 3000);
+    setInterval(increaseTiredLvl, 3000);
+    setInterval(increaseAge, 6000);
 })
