@@ -11,7 +11,6 @@ methods should be something like:
 -increaseAge
 -morph
 -die
-worry about css and stuff like that later.
 */
 
 const tamagotchi = {
@@ -28,6 +27,10 @@ const tamagotchi = {
       let food = this.foodLvl;
         food++;
       $('#feed').text('Hunger: ' + food);
+      if(food === 10){
+        gameOver();
+        return this.foodLvl = 0;
+      }
         return this.foodLvl += 1;
     },
 
@@ -35,6 +38,10 @@ const tamagotchi = {
       let tired = this.tiredLvl;
         tired++;
       $('#tired').text('Tiredness: ' + tired);
+      if(tired === 10){
+        gameOver();
+        return this.tiredLvl = 0;
+      }
         return this.tiredLvl += 1;
     },
 
@@ -42,6 +49,10 @@ const tamagotchi = {
       let play = this.playLvl;
         play++;
       $('#boredom').text('Boredom: ' + play);
+      if(play === 10){
+        gameOver();
+        return this.playLvl = 0;
+      }
         return this.playLvl += 1;
     },
 
@@ -80,6 +91,7 @@ const tamagotchi = {
           $('#bordom').text('Boredom: ' + decPlay);
             return this.foodLvl = 0;
         }
+        
         decPlay--;
         $('#boredom').text('Boredom: ' + decPlay);
           return this.playLvl -= 1;
@@ -87,18 +99,6 @@ const tamagotchi = {
 
  
 }
-
-/* we'll need a function to initialize the game and start the meters for each metric that we're tracking. For now I'll make a button to just show that things are tracking, but not do the increase on an interval.
-
-
-
-*/
-/*$("#check").on('click', () => {
-    console.log(tamagotchi.increaseFoodLvl());
-    console.log(tamagotchi.increaseTiredLvl());
-    console.log(tamagotchi.increasePlayLvl());
-    console.log(tamagotchi.increaseAge());
-}) */
 
 
 /* button works fine, now i need to make the increase functions to iterate without any clicks. then we make more buttons to assign to other meters, and make them be able to decrease the meters. */
@@ -115,6 +115,8 @@ $("#decPlay").on('click', () => {
   console.log(tamagotchi.decreasePlayLvl());
 })
 
+/* we'll need a function to initialize the game and start the meters for each metric that we're tracking. For now I'll make a button to just show that things are tracking, but not do the increase on an interval.
+*/
 
 $("#begin").on('click', () => {
   (setInterval(() => {
@@ -124,7 +126,13 @@ $("#begin").on('click', () => {
   (setInterval(() => {
     tamagotchi.increaseAge();
   }, 10000));
-  //console.log(setInterval(tamagotchi.increasePlayLvl, 1000));
-  //console.log(setInterval(tamagotchi.increaseTiredLvl, 1000));
-  //console.log(setInterval(tamagotchi.increaseAge, 1000));
+
 });
+
+const gameOver = function() {
+  clearInterval(tamagotchi.increasePlayLvl);
+  clearInterval(tamagotchi.increaseFoodLvl);
+  clearInterval(tamagotchi.increaseTiredLvl);
+  clearInterval(tamagotchi.increaseAge);
+  alert(`your ${tamagotchi.name} has died`);
+}

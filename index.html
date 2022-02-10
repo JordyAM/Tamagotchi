@@ -5,7 +5,9 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Main CSS -->
-  <link rel="stylesheet" href="./styles/main.css">
+  <!--<link rel="stylesheet" href="./styles/main.css"> -->
+  <!-- minify -->
+<link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
   <!-- jQuery -->
   <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
   <!-- Main JS -->
@@ -15,13 +17,15 @@
 </head>
 <body>
     <h1> Tamagotchi test bed</h1>
+    <h1 id="name">Kirby</h1>
     <span id="feed">Hunger: 0</span>
     <span id="tired">Tiredness: 0</span>
     <span id="boredom">Boredom: 0</span>
     <span id="age">Age: 1</span>
-    <button id="begin">Begin</button>
-    <button id="decFood" class="tama">Feed</button>
-    <button id="decTire" class="tama">Rest</button>
-    <button id="decPlay" class="tama">Play</button>
+    <button class="nes-btn" id="begin">Begin</button>
+    <button class="nes-btn" id="end">End game</button>
+    <button class="nes-btn" id="decFood">Feed</button>
+    <button class="nes-btn" id="decTire">Rest</button>
+    <button class="nes-btn" id="decPlay">Play</button>
 </body>
 </html>
