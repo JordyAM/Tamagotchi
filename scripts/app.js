@@ -46,7 +46,10 @@ const tamagotchi = {
     },
 
     increaseAge(){
-      return this.age+=1;
+      let age = this.age;
+        age++;
+      $('#age').text('Age: ' +  age);
+        return this.age+=1;
     },
 
     decreaseFoodLvl(){
@@ -105,20 +108,23 @@ $("#decFood").on('click', () => {
 })
 
 $("#decTire").on('click', () => {
-  console.log(tamagotchi.decreasePlayLvl());
+  console.log(tamagotchi.decreaseTiredLvl());
 })
 
 $("#decPlay").on('click', () => {
-  console.log(tamagotchi.decreaseTiredLvl());
+  console.log(tamagotchi.decreasePlayLvl());
 })
 
 
 $("#begin").on('click', () => {
   (setInterval(() => {
-  tamagotchi.increaseTiredLvl();
-  tamagotchi.increasePlayLvl();
-  tamagotchi.increaseFoodLvl();}, 1000));
+    tamagotchi.increaseTiredLvl();
+    tamagotchi.increasePlayLvl();
+    tamagotchi.increaseFoodLvl();}, 1000));
+  (setInterval(() => {
+    tamagotchi.increaseAge();
+  }, 10000));
   //console.log(setInterval(tamagotchi.increasePlayLvl, 1000));
   //console.log(setInterval(tamagotchi.increaseTiredLvl, 1000));
   //console.log(setInterval(tamagotchi.increaseAge, 1000));
-})
+});
