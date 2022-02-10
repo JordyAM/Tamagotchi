@@ -25,34 +25,61 @@ const tamagotchi = {
 
     */
     increaseFoodLvl(){
+      let food = this.foodLvl;
+        food++;
+      $('#feed').text('Hunger: ' + food);
         return this.foodLvl += 1;
     },
+
     increaseTiredLvl(){
+      let tired = this.tiredLvl;
+        tired++;
+      $('#tired').text('Tiredness: ' + tired);
         return this.tiredLvl += 1;
     },
+
     increasePlayLvl(){
+      let play = this.playLvl;
+        play++;
+      $('#boredom').text('Boredom: ' + play);
         return this.playLvl += 1;
     },
+
     increaseAge(){
-        return this.age+=1;
+      return this.age+=1;
     },
+
     decreaseFoodLvl(){
-        if(this.foodLvl === 0 || this.foodLvl === 1){
+      let decFood = this.foodLvl;
+        if(this.foodLvl === 0){
+          $('#feed').text('Hunger: ' + decFood);
             return this.foodLvl = 0;
         }
-        return this.foodLvl -= 2;
+        decFood--;
+        $('#feed').text('Hunger: ' + decFood);
+          return this.foodLvl -= 1;
     },
+
     decreaseTiredLvl(){
-        if(this.tiredLvl === 0 || this.tiredLvl === 1){
+      let decTired = this.tiredLvl;
+        if(this.tiredLvl === 0){
+          $('#tired').text('Tiredness: ' + decTired);
             return this.foodLvl = 0;
         }
-        return this.tiredLvl -= 2;
+        decTired--;
+        $('#tired').text('Tiredness: ' + decTired);
+          return this.tiredLvl -= 1;
     },
+
     decreasePlayLvl(){
-        if(this.playLvl === 0 || this.playLvl ===1){
+      let decPlay = this.playLvl;
+        if(this.playLvl === 0){
+          $('#bordom').text('Boredom: ' + decPlay);
             return this.foodLvl = 0;
         }
-        return this.playLvl -= 2;
+        decPlay--;
+        $('#boredom').text('Boredom: ' + decPlay);
+          return this.playLvl -= 1;
     },
 
  
@@ -63,32 +90,35 @@ const tamagotchi = {
 
 
 */
-$("#check").on('click', () => {
+/*$("#check").on('click', () => {
     console.log(tamagotchi.increaseFoodLvl());
     console.log(tamagotchi.increaseTiredLvl());
     console.log(tamagotchi.increasePlayLvl());
     console.log(tamagotchi.increaseAge());
-})
+}) */
 
 
 /* button works fine, now i need to make the increase functions to iterate without any clicks. then we make more buttons to assign to other meters, and make them be able to decrease the meters. */
 
 $("#decFood").on('click', () => {
-    console.log(tamagotchi.decreaseFoodLvl());
+  console.log(tamagotchi.decreaseFoodLvl());
 })
 
 $("#decTire").on('click', () => {
-    console.log(tamagotchi.decreasePlayLvl());
+  console.log(tamagotchi.decreasePlayLvl());
 })
 
 $("#decPlay").on('click', () => {
-    console.log(tamagotchi.decreaseTiredLvl());
+  console.log(tamagotchi.decreaseTiredLvl());
 })
 
 
-$("#Begin").on('click', () => {
-    setInterval(increaseFoodLvl, 3000);
-    setInterval(increasePlayLvl, 3000);
-    setInterval(increaseTiredLvl, 3000);
-    setInterval(increaseAge, 6000);
+$("#begin").on('click', () => {
+  (setInterval(() => {
+  tamagotchi.increaseTiredLvl();
+  tamagotchi.increasePlayLvl();
+  tamagotchi.increaseFoodLvl();}, 1000));
+  //console.log(setInterval(tamagotchi.increasePlayLvl, 1000));
+  //console.log(setInterval(tamagotchi.increaseTiredLvl, 1000));
+  //console.log(setInterval(tamagotchi.increaseAge, 1000));
 })
