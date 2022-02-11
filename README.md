@@ -19,9 +19,9 @@ This is my first project everon github and in the GA program. I chose Kirby as t
 
 Tecnologies used:
 
--Jquery
--NES.css
--Press Start 2P font
+- Jquery
+- NES.css
+- Press Start 2P font
 
 
 Installation instructions: click on the link in the issues tab.
