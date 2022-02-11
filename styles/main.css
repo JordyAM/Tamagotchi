@@ -1,0 +1,15 @@
+body {
+    background-color: rebeccapurple;
+    color:violet;
+    padding: 10px;
+}
+
+h1 {
+    text-align: center;
+    text-decoration: teal;
+}
+
+.container {
+    padding: 10px;
+    border: 2px solid black;
+}
