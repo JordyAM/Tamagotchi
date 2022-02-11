@@ -27,13 +27,14 @@ h1 {
 }
 
 /* #image{ */
-    /* display: inline-block; */
+    
 /* } */
 #image {
-    float: right;
+    /* float: right; */
     width: 300px;
     position: static;
     bottom: 0;
-    /* display: flex; */
-    /* text-align: right; */
+    display: flex;
+    text-align: right;
+    display: inline-block;
 }

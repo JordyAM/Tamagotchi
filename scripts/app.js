@@ -69,7 +69,7 @@ const tamagotchi = {
     },
 
 
-  /* these function decriment whenever the appropriate button is clicked */
+  /* these functions decriment the tamagotchi variables whenever the appropriate button is clicked */
     decreaseFoodLvl(){
       let decFood = this.foodLvl;
         if(this.foodLvl === 0){
@@ -112,22 +112,21 @@ const tamagotchi = {
 }
 $("#name").text(`${tamagotchi.name}`);
 
-/* button works fine, now i need to make the increase functions to iterate without any clicks. then we make more buttons to assign to other meters, and make them be able to decrease the meters. */
+/* buttons for decreasing the meters */
 
 $("#decFood").on('click', () => {
-  console.log(tamagotchi.decreaseFoodLvl());
+  tamagotchi.decreaseFoodLvl();
 })
 
 $("#decTire").on('click', () => {
-  console.log(tamagotchi.decreaseTiredLvl());
+  tamagotchi.decreaseTiredLvl();
 })
 
 $("#decPlay").on('click', () => {
-  console.log(tamagotchi.decreasePlayLvl());
+  tamagotchi.decreasePlayLvl();
 })
 
-/* we'll need a function to initialize the game and start the meters for each metric that we're tracking. For now I'll make a button to just show that things are tracking, but not do the increase on an interval.
-*/
+/* Begin button initiates the game and gameOver and reset functions do the fail state and reset the game*/
 
 $("#begin").on('click', () => {
   setTimer = setInterval(() => {
