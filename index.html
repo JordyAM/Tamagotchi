@@ -8,6 +8,7 @@
    
     <!-- minify -->
     <link href="https://unpkg.com/nes.css@2.3.0/css/nes.min.css" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
     <link href="styles/main.css" rel="stylesheet">
     <!-- jQuery -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
@@ -18,16 +19,19 @@
 </head>
 <body>
   <div class="container">
+    <button class="nes-btn" id="begin">Begin</button>
+    <span id="age">Age: 1</span>
     <h1> Tamagotchi!</h1>
     <h1 id="name">Kirby</h1>
-    <span id="feed">Hunger: 0</span>
-    <span id="tired">Tiredness: 0</span>
-    <span id="boredom">Boredom: 0</span>
-    <span id="age">Age: 1</span>
-    <button class="nes-btn" id="begin">Begin</button>
+    
+    
     <button class="nes-btn" id="decFood">Feed</button>
+    <span id="feed"><h2>Hunger: 0</h2></span>
     <button class="nes-btn" id="decTire">Rest</button>
+    <span id="tired"><h2>Tiredness: 0</h2></span>
     <button class="nes-btn" id="decPlay">Play</button>
+    <span id="boredom"><h2>Boredom: 0</h2></span>
+    <img src="Kirby.gif" height="300" width="300">
   </div>
 </body>
 </html>

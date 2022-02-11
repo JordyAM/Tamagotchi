@@ -2,6 +2,12 @@ body {
     background-color: rebeccapurple;
     color:violet;
     padding: 10px;
+    height: 1000px;
+    display: flex;
+    justify-content:center;
+    flex-wrap: wrap;
+    flex-direction: row;
+    
 }
 
 h1 {
@@ -11,5 +17,14 @@ h1 {
 
 .container {
     padding: 10px;
-    border: 2px solid black;
+    border: 5px solid black;
+     display: inline-block; 
+    margin: 10px;
+    position: absolute;
+    height: 700px;
+    width: 800px;
+}
+
+img {
+    display: inline-block;
 }
