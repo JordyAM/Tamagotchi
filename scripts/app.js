@@ -73,34 +73,34 @@ const tamagotchi = {
     decreaseFoodLvl(){
       let decFood = this.foodLvl;
         if(this.foodLvl === 0){
-          $('#feed').text('<h2>Hunger: </h2>' + decFood);
+          $('#feed').html(`<h2>Hunger: ${decFood}</h2>`);
             return this.foodLvl = 0;
         }
         decFood--;
-        $('#feed').text('<h2>Hunger: </h2>' + decFood);
+        $('#feed').html(`<h2>Hunger: ${decFood}</h2>`);
           return this.foodLvl -= 1;
     },
 
     decreaseTiredLvl(){
       let decTired = this.tiredLvl;
         if(this.tiredLvl === 0){
-          $('#tired').text('<h2>Tiredness: </h2>' + decTired);
+          $('#tired').html(`<h2>Tiredness: ${decTired}</h2>`);
             return this.foodLvl = 0;
         }
         decTired--;
-        $('#tired').text('<h2>Tiredness: </h2>' + decTired);
+        $('#tired').html(`<h2>Tiredness: ${decTired}</h2>`);
           return this.tiredLvl -= 1;
     },
 
     decreasePlayLvl(){
       let decPlay = this.playLvl;
         if(this.playLvl === 0){
-          $('#bordom').text('<h2>Boredom: </h2>' + decPlay);
+          $('#bordom').html(`<h2>Boredom: ${decPlay}</h2>` );
             return this.foodLvl = 0;
         }
         
         decPlay--;
-        $('#boredom').text('<h2>Boredom: </h2>' + decPlay);
+        $('#boredom').html(`<h2>Boredom: ${decPlay}</h2>` );
           return this.playLvl -= 1;
     },
 
