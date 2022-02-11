@@ -5,8 +5,8 @@ body {
     height: 1000px;
     display: flex;
     justify-content:center;
-    flex-wrap: wrap;
-    flex-direction: row;
+    /* flex-wrap: wrap; */
+    /* flex-direction: row; */
     
 }
 
@@ -18,11 +18,12 @@ h1 {
 .container {
     padding: 10px;
     border: 5px solid black;
-     display: inline-block; 
+    /* display: inline-block;  */
     margin: 10px;
     position: absolute;
     height: 760px;
     width: 600px;
+    
 }
 
 /* #image{ */
@@ -31,6 +32,8 @@ h1 {
 #image {
     float: right;
     width: 300px;
+    position: static;
+    bottom: 0;
     /* display: flex; */
     /* text-align: right; */
 }
