@@ -12,9 +12,12 @@ methods should be something like:
 -morph
 -die
 */
+let setTimer;
+let setAge;
+
 
 const tamagotchi = {
-    name: prompt("please enter the tamagotchi's name"),
+    name: prompt("please enter a name:"),
     foodLvl: 0,
     tiredLvl: 0,
     playLvl: 0,
@@ -29,7 +32,7 @@ const tamagotchi = {
       $('#feed').text('Hunger: ' + food);
       if(food === 10){
         gameOver();
-        return this.foodLvl = 0;
+        return reset();
       }
         return this.foodLvl += 1;
     },
@@ -40,7 +43,7 @@ const tamagotchi = {
       $('#tired').text('Tiredness: ' + tired);
       if(tired === 10){
         gameOver();
-        return this.tiredLvl = 0;
+        return reset();
       }
         return this.tiredLvl += 1;
     },
@@ -51,7 +54,7 @@ const tamagotchi = {
       $('#boredom').text('Boredom: ' + play);
       if(play === 10){
         gameOver();
-        return this.playLvl = 0;
+        return reset();
       }
         return this.playLvl += 1;
     },
@@ -96,10 +99,8 @@ const tamagotchi = {
         $('#boredom').text('Boredom: ' + decPlay);
           return this.playLvl -= 1;
     },
-
- 
 }
-
+$("#name").text(`${tamagotchi.name}`);
 
 /* button works fine, now i need to make the increase functions to iterate without any clicks. then we make more buttons to assign to other meters, and make them be able to decrease the meters. */
 
@@ -119,20 +120,24 @@ $("#decPlay").on('click', () => {
 */
 
 $("#begin").on('click', () => {
-  (setInterval(() => {
+  setTimer = setInterval(() => {
     tamagotchi.increaseTiredLvl();
     tamagotchi.increasePlayLvl();
-    tamagotchi.increaseFoodLvl();}, 1000));
-  (setInterval(() => {
+    tamagotchi.increaseFoodLvl();}, 1000);
+  setAge = setInterval(() => {
     tamagotchi.increaseAge();
-  }, 10000));
+  }, 10000);
 
 });
 
 const gameOver = function() {
-  clearInterval(tamagotchi.increasePlayLvl);
-  clearInterval(tamagotchi.increaseFoodLvl);
-  clearInterval(tamagotchi.increaseTiredLvl);
-  clearInterval(tamagotchi.increaseAge);
-  alert(`your ${tamagotchi.name} has died`);
+  clearInterval(setTimer);
+  alert(`${tamagotchi.name} has died`);
+}
+
+const reset = function() {
+  tamagotchi.playLvl = 0;
+  tamagotchi.tiredLvl = 0;
+  tamagotchi.foodLvl = 0;
+  tamagotchi.age = 1;
 }
