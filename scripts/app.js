@@ -1,5 +1,3 @@
-console.log("(☞ﾟヮﾟ)☞tamagotchi project loaded☜(ﾟヮﾟ☜)");
-
 /*
 So we need to make a tamagotchi object, and methods for interacting with it.
 
@@ -17,15 +15,16 @@ let setAge;
 
 
 const tamagotchi = {
-    name: prompt("please enter a name:"),
+    name: prompt("Give Kirby a nickname:"),
     foodLvl: 0,
     tiredLvl: 0,
     playLvl: 0,
     age: 1,
 
-    /*
+    
 
-    */
+/*these functions will increase the meters as well as trigger a game over when one reaches 10. */
+    
     increaseFoodLvl(){
       let food = this.foodLvl;
         food++;
@@ -62,10 +61,15 @@ const tamagotchi = {
     increaseAge(){
       let age = this.age;
         age++;
+        if(age === 5){
+          this.morph();
+        }
       $('#age').text('Age: ' +  age);
         return this.age+=1;
     },
 
+
+  /* these function decriment whenever the appropriate button is clicked */
     decreaseFoodLvl(){
       let decFood = this.foodLvl;
         if(this.foodLvl === 0){
@@ -99,6 +103,12 @@ const tamagotchi = {
         $('#boredom').text('Boredom: ' + decPlay);
           return this.playLvl -= 1;
     },
+
+/* transforms kirby at age 5 */
+    morph(){
+      alert(`${tamagotchi.name} Kirby is turning into ${tamagotchi.name} Superstar!`);
+      $("#kirby").attr('src', 'SuperKirby.gif');
+    }
 }
 $("#name").text(`${tamagotchi.name}`);
 
@@ -127,12 +137,14 @@ $("#begin").on('click', () => {
   setAge = setInterval(() => {
     tamagotchi.increaseAge();
   }, 10000);
+  tamagotchi.age = 1;
 
 });
 
 const gameOver = function() {
   clearInterval(setTimer);
-  alert(`${tamagotchi.name} has died`);
+  clearInterval(setAge);
+  alert(`${tamagotchi.name} Kirby has died`);
 }
 
 const reset = function() {

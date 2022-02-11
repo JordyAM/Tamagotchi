@@ -21,10 +21,16 @@ h1 {
      display: inline-block; 
     margin: 10px;
     position: absolute;
-    height: 700px;
-    width: 800px;
+    height: 760px;
+    width: 600px;
 }
 
-img {
-    display: inline-block;
+/* #image{ */
+    /* display: inline-block; */
+/* } */
+#image {
+    float: right;
+    width: 300px;
+    /* display: flex; */
+    /* text-align: right; */
 }
