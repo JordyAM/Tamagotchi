@@ -28,7 +28,7 @@ const tamagotchi = {
     increaseFoodLvl(){
       let food = this.foodLvl;
         food++;
-      $('#feed').text('Hunger: ' + food);
+      $('#feed').html(`<h2>Hunger: ${food}</h2>` );
       if(food === 10){
         gameOver();
         return reset();
@@ -39,7 +39,7 @@ const tamagotchi = {
     increaseTiredLvl(){
       let tired = this.tiredLvl;
         tired++;
-      $('#tired').text('Tiredness: ' + tired);
+      $('#tired').html(`<h2>Tiredness: ${tired}</h2>` );
       if(tired === 10){
         gameOver();
         return reset();
@@ -50,7 +50,7 @@ const tamagotchi = {
     increasePlayLvl(){
       let play = this.playLvl;
         play++;
-      $('#boredom').text('Boredom: ' + play);
+      $('#boredom').html(`<h2>Boredom: ${play}</h2>` );
       if(play === 10){
         gameOver();
         return reset();
@@ -73,34 +73,34 @@ const tamagotchi = {
     decreaseFoodLvl(){
       let decFood = this.foodLvl;
         if(this.foodLvl === 0){
-          $('#feed').text('Hunger: ' + decFood);
+          $('#feed').text('<h2>Hunger: </h2>' + decFood);
             return this.foodLvl = 0;
         }
         decFood--;
-        $('#feed').text('Hunger: ' + decFood);
+        $('#feed').text('<h2>Hunger: </h2>' + decFood);
           return this.foodLvl -= 1;
     },
 
     decreaseTiredLvl(){
       let decTired = this.tiredLvl;
         if(this.tiredLvl === 0){
-          $('#tired').text('Tiredness: ' + decTired);
+          $('#tired').text('<h2>Tiredness: </h2>' + decTired);
             return this.foodLvl = 0;
         }
         decTired--;
-        $('#tired').text('Tiredness: ' + decTired);
+        $('#tired').text('<h2>Tiredness: </h2>' + decTired);
           return this.tiredLvl -= 1;
     },
 
     decreasePlayLvl(){
       let decPlay = this.playLvl;
         if(this.playLvl === 0){
-          $('#bordom').text('Boredom: ' + decPlay);
+          $('#bordom').text('<h2>Boredom: </h2>' + decPlay);
             return this.foodLvl = 0;
         }
         
         decPlay--;
-        $('#boredom').text('Boredom: ' + decPlay);
+        $('#boredom').text('<h2>Boredom: </h2>' + decPlay);
           return this.playLvl -= 1;
     },
 
