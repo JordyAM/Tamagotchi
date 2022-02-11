@@ -18,6 +18,7 @@ h1 {
 #decButtons{
     display:flex;
     flex-direction: column; 
+    
 }
 
 .container {
